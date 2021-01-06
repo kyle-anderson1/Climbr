@@ -1,0 +1,48 @@
+.WorkoutCreater {
+  width: 100%;
+  height: 400px;
+  margin: 16px auto;
+  overflow: scroll;
+}
+
+.WorkoutCreater h1 {
+  margin: 0px;
+  margin-bottom: 5px;
+}
+
+.WorkoutCreater form {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: left;
+  margin-bottom: 10px;
+}
+
+.WorkoutCreater form input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.SideBySide {
+  display: flex;
+  flex-flow: row;
+  align-items: left;
+}
+
+.SideBySide * {
+  margin: 5px;
+}
+
+.Right {
+  text-align: center;
+}
+
+.Image {
+  max-width: 150px;
+  max-height: 150px;
+}

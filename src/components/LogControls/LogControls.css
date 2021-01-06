@@ -1,0 +1,53 @@
+.Content {
+  height: 5%;
+  width: 60%;
+  margin: 16px auto;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 3px #ccc;
+  overflow: scroll;
+  background-color: #d4c0b8;
+}
+
+.Content h3 {
+  text-align: center;
+  margin: 2px;
+  margin-bottom: 5px;
+  padding: 8px;
+  background-color: black;
+  color: white;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.Content form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.Content form * {
+  margin: 5px;
+}
+
+.Content form input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .Content form {
+    flex-direction: column;
+  }
+  .Content form * {
+    margin: 3px;
+  }
+  .Content form input {
+    width: 80%;
+  }
+}
