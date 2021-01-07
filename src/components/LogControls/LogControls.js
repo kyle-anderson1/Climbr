@@ -20,7 +20,7 @@ const logControls = (props) => {
         <input
           onChange={(event) => props.workoutChange(event, 'date')}
           type='date'
-          value={currWorkout.date === null ? (new Date()) : currWorkout.date}/>
+          value={currWorkout.date === null ? '' : currWorkout.date}/>
 
         <Button style={{fontSize: '1.1rem'}} clicked={props.create}>Add Workout</Button>
       </form>
