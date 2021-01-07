@@ -8,22 +8,21 @@ const logControls = (props) => {
 
   return (
     <div className={classes.Content}>
-      <h3>Add Workout</h3>
       <form>
         <label>Name:</label>
         <input
-          onChange={props.nameChange}
+          onChange={(event) => props.workoutChange(event, 'name')}
           type='text'
           value={currWorkout.name === '' ? '' : currWorkout.name}
           placeholder={currWorkout.name === '' ? 'Name of Workout' : ''}/>
 
         <label>Date:</label>
         <input
-          onChange={props.dateChange}
+          onChange={(event) => props.workoutChange(event, 'date')}
           type='date'
           value={currWorkout.date === null ? (new Date()) : currWorkout.date}/>
 
-        <Button clicked={props.create}>CREATE</Button>
+        <Button style={{fontSize: '1.1rem'}} clicked={props.create}>Add Workout</Button>
       </form>
     </div>
   );

@@ -3,7 +3,7 @@ import React from 'react';
 import LogItem from './LogItem/LogItem';
 import freerider from '../../assets/images/freerider.png';
 
-import Aux from '../../hoc/Aux';
+import Aux from '../../hoc/Aux/Aux';
 
 // TODO: will have to loop through a set of workout
 const log = (props) => {
@@ -16,6 +16,9 @@ const log = (props) => {
           location={{crag: '', city: '', locState: ''}}
           date={workout.date}
           image={freerider}
+          route={workout.route}
+          type={workout.type}
+          difficulty={workout.difficulty}
           key={workout.key}/>);
       })}
     </Aux>

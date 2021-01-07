@@ -5,7 +5,7 @@ import LogControls from '../../components/LogControls/LogControls';
 import Modal from '../../components/UI/Modal/Modal';
 import WorkoutCreater from '../../components/LogControls/WorkoutCreater/WorkoutCreater';
 
-import Aux from '../../hoc/Aux';
+import Aux from '../../hoc/Aux/Aux';
 
 class WorkoutLogger extends Component {
   state = {
@@ -15,7 +15,10 @@ class WorkoutLogger extends Component {
       name: '',
       description: '',
       date: null,
-      key: ''
+      key: '',
+      route: '',
+      type: '',
+      difficulty: ''
     }
   }
 
@@ -30,23 +33,9 @@ class WorkoutLogger extends Component {
     this.setState({addingWorkout: false});
   }
 
-  nameChangeHandler = (event) => {
+  workoutChangeHandler = (event, label) => {
     let currentWorkout = {...this.state.currentWorkout};
-    currentWorkout.name = event.target.value;
-    this.setState({currentWorkout: currentWorkout});
-  }
-
-  descriptionChangeHandler = (event) => {
-    let currentWorkout = {...this.state.currentWorkout};
-    currentWorkout.description = event.target.value;
-    this.setState({currentWorkout: currentWorkout});
-  }
-
-  dateChangeHandler = (event) => {
-    let currentWorkout = {...this.state.currentWorkout};
-    // possibly use Date() object
-    const date = event.target.value;
-    currentWorkout.date = date;
+    currentWorkout[label] = event.target.value;
     this.setState({currentWorkout: currentWorkout});
   }
 
@@ -56,7 +45,7 @@ class WorkoutLogger extends Component {
     let currentWorkout = {...this.state.currentWorkout};
     currentWorkout.key = currentWorkout.name + (Math.random().toString());
     workouts.push(currentWorkout);
-    const newWorkout = {name: '', description: '', date: null, key: ''};
+    const newWorkout = {name: '', description: '', date: null, key: '', difficulty: '', type: '', route: ''};
     this.setState({workouts: workouts, currentWorkout: newWorkout, addingWorkout: false});
   }
 
@@ -64,8 +53,7 @@ class WorkoutLogger extends Component {
     return (
       <Aux>
         <LogControls
-          nameChange={this.nameChangeHandler}
-          dateChange={this.dateChangeHandler}
+          workoutChange={this.workoutChangeHandler}
           currentWorkout={this.state.currentWorkout}
           create={this.createWorkoutHandler}/>
         <Log
@@ -75,9 +63,7 @@ class WorkoutLogger extends Component {
           hide={this.hideWorkoutHandler}>
           <WorkoutCreater
             currentWorkout={this.state.currentWorkout}
-            nameChange={this.nameChangeHandler}
-            descriptionChange={this.descriptionChangeHandler}
-            dateChange={this.dateChangeHandler}
+            workoutChange={this.workoutChangeHandler}
             upload={this.uploadCurrentWorkoutHandler}/>
         </Modal>
       </Aux>

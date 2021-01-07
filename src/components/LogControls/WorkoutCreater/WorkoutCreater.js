@@ -11,6 +11,7 @@ import React from 'react';
 import classes from './WorkoutCreater.css';
 import imagePlaceholder from '../../../assets/images/mountain-placeholder.jpg';
 import Button from '../../UI/Button/Button';
+import RouteSelect from './RouteSelect/RouteSelect';
 
 const workoutCreater = (props) => {
     const currWorkout = {...props.currentWorkout};
@@ -20,26 +21,26 @@ const workoutCreater = (props) => {
         <form>
           <label>Name:</label>
           <input
-            onChange={props.nameChange}
+            onChange={(event) => props.workoutChange(event, 'name')}
             type='text'
             value={currWorkout.name === '' ? '' : currWorkout.name}
             placeholder={currWorkout.name === '' ? 'Name of Workout' : ''}/>
 
           <label>Description:</label>
           <input
-            onChange={props.descriptionChange}
+            onChange={(event) => props.workoutChange(event, 'description')}
             type='text'
             placeholder='How was the climbing...'></input>
           <div className={classes.SideBySide}>
             <div className={classes.Left}>
               <label>Date:</label>
               <input
-                onChange={props.dateChange}
+                onChange={(event) => props.workoutChange(event, 'date')}
                 type='date'
                 value={currWorkout.date === null ? (new Date()) : currWorkout.date}/>
             </div>
             <div className={classes.Right}>
-              <label>Image (SHOULD BE CHANGED):</label>
+              <label>Image:</label>
               <input
                 className={classes.Image}
                 name='image'
@@ -48,6 +49,8 @@ const workoutCreater = (props) => {
                 alt='imageUpload'/>
             </div>
           </div>
+          <RouteSelect
+            routeChanged={props.workoutChange}/>
           <Button clicked={props.upload}>UPLOAD</Button>
         </form>
       </div>
