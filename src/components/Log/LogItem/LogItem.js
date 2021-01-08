@@ -15,9 +15,9 @@ class LogItem extends Component {
             <p><i>{this.props.description}</i></p>
             <p>Location: {crag}, {city}, {locState}</p>
             <p>Date: {this.props.date}</p>
-            <p>Route: {this.props.route}</p>
-            <p>Type: {this.props.type}</p>
-            <p>Difficulty: {this.props.difficulty}</p>
+            {this.props.routes.map(route => {
+                return <p key={route.name}>{route.difficulty} | {route.type} {route.name}</p>;
+              })}
           </div>
           <div className={classes.Right}>
             <img src={this.props.image} alt='RouteImage'/>

@@ -1,0 +1,31 @@
+.RouteList {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.Routes {
+  width: 100%;
+  padding: 10px 20px;
+  margin: 8px 0;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.Routes * {
+  margin: 0px;
+  padding: 0px;
+}
+
+.Remove {
+  background-color: red;
+  color: white;
+  width: 10%;
+  height: 20px;
+  margin: 0px;
+  padding: 0px;
+}

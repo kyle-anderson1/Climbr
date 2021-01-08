@@ -17,7 +17,7 @@ class WorkoutLogger extends Component {
       description: '',
       date: null,
       key: '',
-      route: '',
+      routes: [],
       type: '',
       difficulty: ''
     }
@@ -30,13 +30,17 @@ class WorkoutLogger extends Component {
     console.log("[WorkoutLogger.js] componentDidMount...");
     axios.get('/workouts.json')
       .then(response => {
-        const data = Object.entries(response.data)
-          .map(entry => {
-            return entry[1];
-          }
-        );
-        console.log("GET", data);
-        this.setState({workouts: data});
+        if (response !== null) {
+          const data = Object.entries(response.data)
+            .map(entry => {
+              return entry[1];
+            }
+          );
+          console.log("GET", data);
+          this.setState({workouts: data});
+        } else {
+          console.log("GET: sends empty request")
+        }
       })
       .catch(error => console.log(error));
   }
@@ -52,21 +56,23 @@ class WorkoutLogger extends Component {
     axios.post('/workouts.json', workout)
       .then(response => {
         console.log("POST", response);
-        const newWorkout = {name: '', description: '', date: null, key: '', difficulty: '', type: '', route: ''};
+        const newWorkout = {name: '', description: '', date: null, key: '', difficulty: '', type: '', routes: ''};
         this.setState({currentWorkout: newWorkout, addingWorkout: false});
       })
       .catch(error => console.log(error));
   }
 
+  // Deprecated in favor of postWorkoutHandler
+  /*
   uploadCurrentWorkoutHandler = (event) => {
     event.preventDefault();
     let workouts = [...this.state.workouts];
     let currentWorkout = {...this.state.currentWorkout};
     currentWorkout.key = currentWorkout.name + (Math.random().toString());
     workouts.push(currentWorkout);
-    const newWorkout = {name: '', description: '', date: null, key: '', difficulty: '', type: '', route: ''};
+    const newWorkout = {name: '', description: '', date: null, key: '', difficulty: '', type: '', routes: []};
     this.setState({workouts: workouts, currentWorkout: newWorkout, addingWorkout: false});
-  }
+  }*/
 
   createWorkoutHandler = (event) => {
     // will need to take an argument with inputed data
@@ -81,7 +87,12 @@ class WorkoutLogger extends Component {
 
   workoutChangeHandler = (event, label) => {
     let currentWorkout = {...this.state.currentWorkout};
-    currentWorkout[label] = event.target.value;
+    if (label === 'routes') {
+      currentWorkout[label] = event;
+      console.log('[WorkoutLogger.js] Adding Route to Workout ', event);
+    } else {
+      currentWorkout[label] = event.target.value;
+    }
     this.setState({currentWorkout: currentWorkout});
   }
 

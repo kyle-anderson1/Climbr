@@ -10,13 +10,14 @@ const log = (props) => {
   return (
     <Aux>
       {props.workouts.map(workout => {
+        console.log("[Log.js] workout ", workout);
         return (<LogItem
           workoutName={workout.name}
           description={workout.description}
           location={{crag: '', city: '', locState: ''}}
           date={workout.date}
           image={freerider}
-          route={workout.route}
+          routes={workout.routes}
           type={workout.type}
           difficulty={workout.difficulty}
           key={workout.key}/>);

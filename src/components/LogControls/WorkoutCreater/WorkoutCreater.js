@@ -50,7 +50,7 @@ const workoutCreater = (props) => {
             </div>
           </div>
           <RouteSelect
-            routeChanged={props.workoutChange}/>
+            routesChanged={props.workoutChange}/>
           <Button clicked={props.upload}>UPLOAD</Button>
         </form>
       </div>
