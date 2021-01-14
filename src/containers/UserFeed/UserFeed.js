@@ -24,8 +24,10 @@ class UserFeed extends Component {
             </li>
           </ul>
           <hr style={{height: '1px', border: 'none', margin: '5px', padding: '0px', backgroundColor: 'lightgrey'}}/>
-          <div className={classes.MyLog}><Link to='/workouts' className={classes.MyLog}>Workout Log</Link></div>
-          <div className={classes.MyLog}><Link to='/logging' className={classes.MyLog}>Log a Workout</Link></div>
+          <div className={classes.MyLog}>
+            <Link to='/workouts' className={classes.MyLog}>Workout Log</Link>
+            <Link to='/logging' className={classes.MyLog}>Log a Workout</Link>
+          </div>
         </div>
         <div className={classes.Center}>
           <h1>User Feed</h1>

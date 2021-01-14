@@ -5,16 +5,14 @@
   border: 1px solid #eee;
   box-shadow: 0 2px 3px #ccc;
   overflow: hidden;
-  background-color: #86bfa5;
+  background-color: white;
 }
 
-.LogItem h3 {
+.LogItem h4 {
   text-align: center;
-  margin: 2px;
-  margin-bottom: 10px;
+  margin: 8px 0px;
   padding: 8px;
-  background-color: black;
-  color: white;
+  color: black;
   border-radius: 2px;
   overflow: hidden;
 }

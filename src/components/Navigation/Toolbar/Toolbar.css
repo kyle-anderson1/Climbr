@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #D18C35;
+  background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,7 +16,7 @@
 .Logo {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.6rem;
-  color: black;
+  color: #D18C35;
 }
 
 @media (max-width: 499px) {
@@ -27,12 +27,12 @@
 
 .LogoLink {
   font: inherit;
-  color: black;
+  color: #D18C35;
   text-decoration: none;
 }
 
 .LogoLink:hover,
 .LogoLink:active,
 .LogoLink.active {
-  color: white;
+  color: black;
 }

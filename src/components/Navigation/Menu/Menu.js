@@ -19,8 +19,13 @@ class Menu extends Component {
     if (this.state.showDropdown) {
       dropdown = (
         <ul className={classes.Links}>
+          <li><NavLink to='/' className={classes.Link}>Home</NavLink></li>
+          <hr style={{height: '1px', border: 'none', margin: '5px 0px', padding: '0px', backgroundColor: 'lightgrey'}}/>
           <li><NavLink to='/workouts' className={classes.Link}>Workouts</NavLink></li>
+          <hr style={{height: '1px', border: 'none', margin: '5px 0px', padding: '0px', backgroundColor: 'lightgrey'}}/>
           <li><NavLink to='/logging' className={classes.Link}>Log a Workout</NavLink></li>
+          <hr style={{height: '1px', border: 'none', margin: '5px 0px', padding: '0px', backgroundColor: 'lightgrey'}}/>
+          <li>TODO: More Links</li>
         </ul>
       );
     }

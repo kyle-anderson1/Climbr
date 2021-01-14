@@ -4,7 +4,6 @@ import axios from '../../axios/axios-workouts';
 import LogItem from './LogItem/LogItem';
 import freerider from '../../assets/images/freerider.png';
 
-import Aux from '../../hoc/Aux/Aux';
 
 class Log extends Component {
   state = {
@@ -35,7 +34,7 @@ class Log extends Component {
 
   render () {
     return (
-      <Aux>
+      <div style={{paddingTop: '20px'}}>
         {this.state.workouts.map(workout => {
           //console.log("[Log.js] workout ", workout);
           return (<LogItem
@@ -49,7 +48,7 @@ class Log extends Component {
             difficulty={workout.difficulty}
             key={workout.key}/>);
         })}
-      </Aux>
+      </div>
     );
   }
 }

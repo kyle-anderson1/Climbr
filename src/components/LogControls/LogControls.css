@@ -1,14 +1,17 @@
 .Content {
+  padding-top: 20px;
+}
+
+.Content form {
   height: 5%;
   width: 60%;
   margin: 16px auto;
   border: 1px solid #eee;
   box-shadow: 0 2px 3px #ccc;
   overflow: scroll;
-  background-color: #d4c0b8;
-}
+  background-color: white;
+  padding: 15px;
 
-.Content form {
   display: flex;
   justify-content: space-between;
   align-items: center;

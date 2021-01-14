@@ -22,7 +22,7 @@ const logControls = (props) => {
           type='date'
           value={currWorkout.date === null ? '' : currWorkout.date}/>
 
-        <Button style={{fontSize: '1.1rem'}} clicked={props.create}>Add Workout</Button>
+        <Button style={{fontSize: '1.1rem', padding: '8px 15px'}} clicked={props.create}>Add Workout</Button>
       </form>
     </div>
   );

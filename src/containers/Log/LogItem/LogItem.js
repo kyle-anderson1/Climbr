@@ -7,7 +7,8 @@ class LogItem extends Component {
   render () {
     return (
       <div className={classes.LogItem}>
-        <h3>{this.props.workoutName}</h3>
+        <h4>{this.props.workoutName}</h4>
+        <hr style={{height: '1px', border: 'none', margin: '5px 3px', padding: '0px', backgroundColor: 'lightgrey'}}/>
         <div className={classes.Inner}>
           <div className={classes.Left}>
             <p><i>{this.props.description}</i></p>

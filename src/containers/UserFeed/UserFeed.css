@@ -44,8 +44,9 @@
 }
 
 .MyLog {
-  margin: 20px;
+  margin: 25px;
   padding: 0px;
+  display: block;
 }
 
 .MyLog * {
@@ -56,6 +57,7 @@
   font-size: .9rem;
   margin: 5px;
   padding: 10px;
+  text-align: center;
 }
 
 .MyLog *:hover {
