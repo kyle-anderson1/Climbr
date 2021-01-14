@@ -24,3 +24,15 @@
     display: none;
   }
 }
+
+.LogoLink {
+  font: inherit;
+  color: black;
+  text-decoration: none;
+}
+
+.LogoLink:hover,
+.LogoLink:active,
+.LogoLink.active {
+  color: white;
+}

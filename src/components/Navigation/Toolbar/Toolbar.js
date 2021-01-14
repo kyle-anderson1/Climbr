@@ -8,7 +8,7 @@ const toolbar = () => (
   <div className={classes.Toolbar}>
     <header className={classes.Toolbar}>
       <Menu />
-      <div className={classes.Logo}><Link to="/">Climbr</Link></div>
+      <div className={classes.Logo}><Link to="/" className={classes.LogoLink}>Climbr</Link></div>
       <div>Login</div>
     </header>
   </div>
