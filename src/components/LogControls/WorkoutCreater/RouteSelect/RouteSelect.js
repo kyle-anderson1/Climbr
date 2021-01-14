@@ -58,7 +58,7 @@ class RouteSelect extends Component {
     let routes = [...this.state.routes];
     routes.splice(routes.indexOf(route),1);
     this.setState({routes: routes});
-    this.routesChanged(routes,'routes');
+    this.props.routesChanged(routes,'routes');
   }
 
   render () {

@@ -27,7 +27,7 @@ class WorkoutLogger extends Component {
   // - componentDidMount is useful for handling side effects in React so great
   //   for receiving data from the server
   componentDidMount () {
-    console.log("[WorkoutLogger.js] componentDidMount...");
+    //console.log("[WorkoutLogger.js] componentDidMount...");
     axios.get('/workouts.json')
       .then(response => {
         if (response !== null) {
@@ -36,7 +36,7 @@ class WorkoutLogger extends Component {
               return entry[1];
             }
           );
-          console.log("GET", data);
+          //console.log("GET", data);
           this.setState({workouts: data});
         } else {
           console.log("GET: sends empty request")
@@ -52,11 +52,12 @@ class WorkoutLogger extends Component {
     event.preventDefault();
     let workout = {...this.state.currentWorkout};
     workout.key = workout.name + (Math.random().toString());
+    console.log("[WorkoutLogger.js] posting workout... ", workout);
 
     axios.post('/workouts.json', workout)
       .then(response => {
         console.log("POST", response);
-        const newWorkout = {name: '', description: '', date: null, key: '', difficulty: '', type: '', routes: ''};
+        const newWorkout = {name: '', description: '', date: null, key: '', difficulty: '', type: '', routes: []};
         this.setState({currentWorkout: newWorkout, addingWorkout: false});
       })
       .catch(error => console.log(error));
@@ -87,9 +88,10 @@ class WorkoutLogger extends Component {
 
   workoutChangeHandler = (event, label) => {
     let currentWorkout = {...this.state.currentWorkout};
+    //console.log("[WorkoutLogger.js] changing workout in handler ", currentWorkout);
     if (label === 'routes') {
       currentWorkout[label] = event;
-      console.log('[WorkoutLogger.js] Adding Route to Workout ', event);
+      //console.log('[WorkoutLogger.js] Adding Route to Workout ', event);
     } else {
       currentWorkout[label] = event.target.value;
     }

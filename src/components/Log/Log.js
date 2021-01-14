@@ -10,7 +10,7 @@ const log = (props) => {
   return (
     <Aux>
       {props.workouts.map(workout => {
-        console.log("[Log.js] workout ", workout);
+        //console.log("[Log.js] workout ", workout);
         return (<LogItem
           workoutName={workout.name}
           description={workout.description}
