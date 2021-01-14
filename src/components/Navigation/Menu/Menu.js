@@ -20,6 +20,7 @@ class Menu extends Component {
       dropdown = (
         <ul className={classes.Links}>
           <li><NavLink to='/workouts' className={classes.Link}>Workouts</NavLink></li>
+          <li><NavLink to='/logging' className={classes.Link}>Log a Workout</NavLink></li>
         </ul>
       );
     }

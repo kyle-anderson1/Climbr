@@ -1,0 +1,93 @@
+.UserFeed {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.Left {
+  order: 1;
+  flex-basis: 25%;
+  height: 400px;
+  width: 100px;
+  margin: 15px;
+  padding: 10px;
+  text-align: center;
+  background-color: white;
+  box-shadow: 2px darkgrey;
+  border-radius: 2px;
+}
+
+.UserInfo {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  width:100%;
+  margin: 0px;
+  padding: 0px;
+  font-size: 1.0rem;
+}
+
+.UserInfo li {
+  margin: 5px;
+  padding: 0px;
+  list-style-type: none;
+}
+
+.UserInfo li * {
+  margin: 0px;
+  padding: 0px;
+}
+
+.UserInfo li p {
+  text-align: center;
+}
+
+.MyLog {
+  margin: 20px;
+  padding: 0px;
+}
+
+.MyLog * {
+  background-color: #EEEDEF;
+  border-radius: 2px;
+  text-decoration: none;
+  color: black;
+  font-size: .9rem;
+  margin: 5px;
+  padding: 10px;
+}
+
+.MyLog *:hover {
+  color: blue;
+}
+
+.Center {
+  order: 2;
+  flex-basis: 50%;
+  height: 600px;
+  margin: 15px;
+  padding: 10px;
+  text-align: center;
+  background-color: white;
+  box-shadow: 2px darkgrey;
+  border-radius: 2px;
+}
+
+.Center * {
+  border: none;
+  box-shadow: none;
+  border-radius: 0px;
+}
+
+.Right {
+  order: 3;
+  flex-basis: 25%;
+  height: 400px;
+  margin: 15px;
+  padding: 10px;
+  text-align: center;
+  background-color: white;
+  box-shadow: 2px darkgrey;
+  border-radius: 2px;
+}

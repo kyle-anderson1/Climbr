@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
 import axios from '../../axios/axios-workouts';
 
-import Log from '../../components/Log/Log';
 import LogControls from '../../components/LogControls/LogControls';
 import Modal from '../../components/UI/Modal/Modal';
 import WorkoutCreater from '../../components/LogControls/WorkoutCreater/WorkoutCreater';
@@ -23,8 +21,6 @@ class WorkoutLogger extends Component {
       location: ''
     }
   }
-
-
 
   // POST Requests Handler
   // - this handles all post requests for new workouts
@@ -69,30 +65,20 @@ class WorkoutLogger extends Component {
 
   render () {
     return (
-      <Switch>
-        <Route
-          path='/workouts'
-          render={() => <Log />}/>
-        <Route
-          path='/'
-          exact
-          render={() => (
-            <Aux>
-              <LogControls
-                workoutChange={this.workoutChangeHandler}
-                currentWorkout={this.state.currentWorkout}
-                create={this.createWorkoutHandler}/>
-              <Modal
-                show={this.state.addingWorkout}
-                hide={this.hideWorkoutHandler}>
-                <WorkoutCreater
-                  currentWorkout={this.state.currentWorkout}
-                  workoutChange={this.workoutChangeHandler}
-                  upload={this.postWorkoutHandler}/>
-              </Modal>
-            </Aux>
-          )}/>
-      </Switch>
+      <Aux>
+        <LogControls
+          workoutChange={this.workoutChangeHandler}
+          currentWorkout={this.state.currentWorkout}
+          create={this.createWorkoutHandler}/>
+        <Modal
+          show={this.state.addingWorkout}
+          hide={this.hideWorkoutHandler}>
+          <WorkoutCreater
+            currentWorkout={this.state.currentWorkout}
+            workoutChange={this.workoutChangeHandler}
+            upload={this.postWorkoutHandler}/>
+        </Modal>
+      </Aux>
     );
   }
 }
