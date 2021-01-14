@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import axios from '../../axios/axios-workouts';
 
 import Log from '../../components/Log/Log';
@@ -100,22 +101,30 @@ class WorkoutLogger extends Component {
 
   render () {
     return (
-      <Aux>
-        <LogControls
-          workoutChange={this.workoutChangeHandler}
-          currentWorkout={this.state.currentWorkout}
-          create={this.createWorkoutHandler}/>
-        <Log
-          workouts={this.state.workouts}/>
-        <Modal
-          show={this.state.addingWorkout}
-          hide={this.hideWorkoutHandler}>
-          <WorkoutCreater
-            currentWorkout={this.state.currentWorkout}
-            workoutChange={this.workoutChangeHandler}
-            upload={this.postWorkoutHandler}/>
-        </Modal>
-      </Aux>
+      <Switch>
+        <Route
+          path='/workouts'
+          render={() => <Log workouts={this.state.workouts}/>}/>
+        <Route
+          path='/'
+          exact
+          render={() => (
+            <Aux>
+              <LogControls
+                workoutChange={this.workoutChangeHandler}
+                currentWorkout={this.state.currentWorkout}
+                create={this.createWorkoutHandler}/>
+              <Modal
+                show={this.state.addingWorkout}
+                hide={this.hideWorkoutHandler}>
+                <WorkoutCreater
+                  currentWorkout={this.state.currentWorkout}
+                  workoutChange={this.workoutChangeHandler}
+                  upload={this.postWorkoutHandler}/>
+              </Modal>
+            </Aux>
+          )}/>
+      </Switch>
     );
   }
 }
