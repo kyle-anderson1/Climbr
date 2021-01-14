@@ -11,7 +11,6 @@ import Aux from '../../hoc/Aux/Aux';
 
 class WorkoutLogger extends Component {
   state = {
-    workouts: [],
     addingWorkout: false,
     currentWorkout: {
       name: '',
@@ -20,31 +19,12 @@ class WorkoutLogger extends Component {
       key: '',
       routes: [],
       type: '',
-      difficulty: ''
+      difficulty: '',
+      location: ''
     }
   }
 
-  // GET Requests Handled Here
-  // - componentDidMount is useful for handling side effects in React so great
-  //   for receiving data from the server
-  componentDidMount () {
-    //console.log("[WorkoutLogger.js] componentDidMount...");
-    axios.get('/workouts.json')
-      .then(response => {
-        if (response !== null) {
-          const data = Object.entries(response.data)
-            .map(entry => {
-              return entry[1];
-            }
-          );
-          //console.log("GET", data);
-          this.setState({workouts: data});
-        } else {
-          console.log("GET: sends empty request")
-        }
-      })
-      .catch(error => console.log(error));
-  }
+
 
   // POST Requests Handler
   // - this handles all post requests for new workouts
@@ -58,23 +38,11 @@ class WorkoutLogger extends Component {
     axios.post('/workouts.json', workout)
       .then(response => {
         console.log("POST", response);
-        const newWorkout = {name: '', description: '', date: null, key: '', difficulty: '', type: '', routes: []};
+        const newWorkout = {name: '', description: '', date: null, key: '', difficulty: '', type: '', routes: [], location: ''};
         this.setState({currentWorkout: newWorkout, addingWorkout: false});
       })
       .catch(error => console.log(error));
   }
-
-  // Deprecated in favor of postWorkoutHandler
-  /*
-  uploadCurrentWorkoutHandler = (event) => {
-    event.preventDefault();
-    let workouts = [...this.state.workouts];
-    let currentWorkout = {...this.state.currentWorkout};
-    currentWorkout.key = currentWorkout.name + (Math.random().toString());
-    workouts.push(currentWorkout);
-    const newWorkout = {name: '', description: '', date: null, key: '', difficulty: '', type: '', routes: []};
-    this.setState({workouts: workouts, currentWorkout: newWorkout, addingWorkout: false});
-  }*/
 
   createWorkoutHandler = (event) => {
     // will need to take an argument with inputed data
@@ -104,7 +72,7 @@ class WorkoutLogger extends Component {
       <Switch>
         <Route
           path='/workouts'
-          render={() => <Log workouts={this.state.workouts}/>}/>
+          render={() => <Log />}/>
         <Route
           path='/'
           exact

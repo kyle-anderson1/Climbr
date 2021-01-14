@@ -19,7 +19,8 @@ class WorkoutCreater extends Component {
     descriptionChanged: false,
     dateChanged: false,
     imageChanged: true,
-    routeSelected: true
+    routeSelected: true,
+    locationChanged: false
   }
 
   inputsChangeHandler = (event, label) => {
@@ -52,17 +53,39 @@ class WorkoutCreater extends Component {
         }
         // TODO
         break;
+      case 'location':
+        console.log(label + ' case');
+        if (!this.state.locationChanged) {
+          this.setState({locationChanged: true});
+        }
+        this.props.workoutChange(event, 'location');
+        break;
       default:
         break;
     }
   }
 
   render () {
+    const currWorkout = {...this.props.currentWorkout};
+
     let uploadable = false;
-    if (this.state.nameChanged && this.state.descriptionChanged && this.state.dateChanged && this.state.imageChanged && this.state.routeSelected) {
+    let dateChanged = false;
+    let nameChanged = false;
+    if (currWorkout.name !== null) {
+      nameChanged = true;
+    } else {
+      nameChanged = this.state.nameChanged;
+    }
+    if (currWorkout.date !== null) {
+      dateChanged = true;
+    } else {
+      dateChanged = this.state.dateChanged;
+    }
+
+
+    if (nameChanged && this.state.descriptionChanged && dateChanged && this.state.imageChanged && this.state.routeSelected && this.state.locationChanged) {
       uploadable = true;
     }
-    const currWorkout = {...this.props.currentWorkout};
 
     return (
       <div className={classes.WorkoutCreater}>
@@ -85,7 +108,12 @@ class WorkoutCreater extends Component {
               <input
                 onChange={(event) => this.inputsChangeHandler(event, 'date')}
                 type='date'
-                value={currWorkout.date === null ? ('') : currWorkout.date}/>
+                value={currWorkout.date === null ? '' : currWorkout.date}/>
+              <label>Location:</label>
+              <input
+                onChange={(event) => this.inputsChangeHandler(event, 'location')}
+                type='text'
+                value={currWorkout.location === null ? '' : currWorkout.location}/>
             </div>
             <div className={classes.Right}>
               <label>Image:</label>
