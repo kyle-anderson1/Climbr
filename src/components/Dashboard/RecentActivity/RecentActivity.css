@@ -1,0 +1,47 @@
+.RecentActivity {
+  height: 400px;
+  margin: 15px;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 2px darkgrey;
+  border-radius: 2px;
+}
+
+.RecentActivity h3 {
+  text-align: center;
+  margin: 10px;
+}
+
+.FriendsActivity ul {
+  display: flex;
+  flex-flow: column;
+  padding: 3px;
+  margin: 0px;
+}
+
+.FriendsActivity ul li {
+  list-style-type: none;
+  margin: 10px 0px;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+}
+
+.FriendsActivity ul li div h4 {
+  margin: 2px;
+  padding: 0px;
+}
+
+.FriendsActivity ul li div p {
+  margin: 0px;
+  padding: 0px;
+  font-size: .9rem;
+}
+
+.UserIcon {
+  border-radius: 50px;
+  width: 25px;
+  height: 25px;
+  margin: 3px;
+  padding: 0px;
+}

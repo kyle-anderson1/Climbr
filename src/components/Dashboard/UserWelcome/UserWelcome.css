@@ -1,0 +1,90 @@
+.UserWelcome {
+  height: 400px;
+  width: 100px;
+  margin: 15px;
+  padding: 10px;
+  text-align: center;
+  background-color: white;
+  box-shadow: 2px darkgrey;
+  border-radius: 2px;
+}
+
+.UserWelcome h2 {
+  font-family: 'Grandstander', cursive;
+  margin: 10px;
+}
+
+.UserWelcome h3 {
+  margin: 8px;
+}
+
+.UserIcon {
+  border-radius: 50px;
+  border: 3px solid lightgrey;
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  padding: 0px;
+}
+
+.Stats {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.Stats div {
+  margin: 5px;
+  padding: 2px;
+  display: flex;
+  flex-flow: column;
+}
+.Stats div label {
+  font-size: .7rem;
+}
+
+.Stats div a {
+  font-size: .9rem;
+  font-weight: bold;
+  color: blue;
+  text-decoration: none;
+}
+
+.Climbs h4 {
+  margin: 10px 5px;
+  margin-bottom: 1px;
+  text-align: left;
+}
+
+.Climbs ul {
+  margin: 0px;
+  padding: 3px;
+}
+.Climbs ul li {
+  font-size: .9rem;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+.Climbs ul li label {
+  font-size: .95rem;
+  font-weight: bold;
+}
+
+.LastActivity h4 {
+  margin: 10px 5px;
+  margin-bottom: 1px;
+  text-align: left;
+}
+
+.Activity {
+  margin: 16px auto;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 3px #ccc;
+  height: 35px;
+  width: 100%;
+  text-align: center;
+  padding-top: 10px;
+}

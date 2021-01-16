@@ -19,7 +19,7 @@ class WorkoutCreater extends Component {
     descriptionChanged: false,
     dateChanged: false,
     imageChanged: true,
-    routeSelected: true,
+    routeSelected: false,
     locationChanged: false
   }
 
@@ -63,6 +63,15 @@ class WorkoutCreater extends Component {
       default:
         break;
     }
+  }
+
+  routesChangedHandler = (routes, label) => {
+    console.log('[WorkoutCreater.js] routes: ', routes);
+    if (!this.state.routeSelected) {
+      this.setState({routeSelected: true});
+      console.log("Route changing...: " + label);    
+    }
+    this.props.workoutChange(routes, 'routes');
   }
 
   render () {
@@ -126,7 +135,7 @@ class WorkoutCreater extends Component {
             </div>
           </div>
           <RouteSelect
-            routesChanged={this.props.workoutChange}/>
+            routesChanged={this.routesChangedHandler}/>
           <Button clicked={this.props.upload} disabled={!uploadable}>UPLOAD</Button>
         </form>
       </div>

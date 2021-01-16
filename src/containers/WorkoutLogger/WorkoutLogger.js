@@ -52,11 +52,13 @@ class WorkoutLogger extends Component {
   }
 
   workoutChangeHandler = (event, label) => {
+    //console.log("[WorkoutLogger.js] inside workoutChangeHandler()");
     let currentWorkout = {...this.state.currentWorkout};
     //console.log("[WorkoutLogger.js] changing workout in handler ", currentWorkout);
     if (label === 'routes') {
-      currentWorkout[label] = event;
-      //console.log('[WorkoutLogger.js] Adding Route to Workout ', event);
+      //console.log('[WorkoutLogger.js] Routes before adding: ', [...currentWorkout.routes]);
+      currentWorkout.routes = [...event];
+      //console.log('[WorkoutLogger.js] Routes after adding: ', currentWorkout.routes);
     } else {
       currentWorkout[label] = event.target.value;
     }

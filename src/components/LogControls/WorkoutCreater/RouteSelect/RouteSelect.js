@@ -28,13 +28,6 @@ class RouteSelect extends Component {
     routes: []
   }
 
-  // Deprecated in favor of routeUpdateHandler
-  /*
-  typeSelectedHandler = (event) => {
-    this.props.routeChanged(event, 'type');
-    this.setState({typeSelected: true, type: event.target.value});
-  }*/
-
   routeUpdateHandler = (event, label) => {
     let currentRoute = {...this.state.currentRoute};
     currentRoute[label] = event.target.value;
@@ -49,7 +42,7 @@ class RouteSelect extends Component {
     event.preventDefault();
     let routes = [...this.state.routes];
     routes.push(this.state.currentRoute);
-    this.setState({routes: routes, moreRoutes: true, currentRoute: {name: '', type: '', difficulty: ''}});
+    this.setState({routes: routes, moreRoutes: true});
     this.props.routesChanged(routes,'routes');
   }
 

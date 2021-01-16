@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from '../../axios/axios-workouts';
 
-import LogItem from './LogItem/LogItem';
+import FeedItem from '../../components/Dashboard/FeedItem/FeedItem';
 import freerider from '../../assets/images/freerider.png';
 
 
@@ -14,7 +14,7 @@ class Log extends Component {
   // - componentDidMount is useful for handling side effects in React so great
   //   for receiving data from the server
   componentDidMount () {
-    console.log("[Log.js] componentDidMount...");
+    //console.log("[Log.js] componentDidMount...");
     axios.get('/workouts.json')
       .then(response => {
         if (response.data !== null) {
@@ -34,11 +34,12 @@ class Log extends Component {
 
   render () {
     return (
-      <div style={{paddingTop: '20px'}}>
+      <div style={this.props.style}>
         {this.state.workouts.map(workout => {
           //console.log("[Log.js] workout ", workout);
-          return (<LogItem
-            workoutName={workout.name}
+          return (<FeedItem
+            username="Default User Name"
+            workoutTitle={workout.name}
             description={workout.description}
             location={workout.location}
             date={workout.date}
@@ -54,3 +55,16 @@ class Log extends Component {
 }
 
 export default Log;
+
+/*
+return (<LogItem
+  workoutName={workout.name}
+  description={workout.description}
+  location={workout.location}
+  date={workout.date}
+  image={freerider}
+  routes={workout.routes}
+  type={workout.type}
+  difficulty={workout.difficulty}
+  key={workout.key}/>);
+*/

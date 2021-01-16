@@ -12,7 +12,7 @@ class App extends Component {
       <div>
         <Layout>
           <Switch>
-            <Route path='/workouts' exact component={Log} />
+            <Route path='/workouts' exact render={() => <Log style={{padding: '20px 200px 0px 200px'}} />} />
             <Route path='/logging' exact component={WorkoutLogger}/>
             <Route path='/' component={UserFeed} />
           </Switch>
