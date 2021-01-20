@@ -1,4 +1,4 @@
-.WorkoutCreater {
+.WorkoutLogger {
   width: 90%;
   height: 100%;
   margin: auto;
@@ -6,12 +6,12 @@
   box-sizing: border-box;
 }
 
-.WorkoutCreater h1 {
+.WorkoutLogger h1 {
   margin: 0px;
   margin-bottom: 5px;
 }
 
-.WorkoutCreater form {
+.WorkoutLogger form {
   display: flex;
   flex-flow: column;
   justify-content: space-between;
@@ -19,7 +19,7 @@
   margin-bottom: 10px;
 }
 
-.WorkoutCreater form input, select {
+.WorkoutLogger form input, select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;

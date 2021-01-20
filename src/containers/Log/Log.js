@@ -33,6 +33,7 @@ class Log extends Component {
   }
 
   render () {
+    console.log('Inside Log');
     return (
       <div style={this.props.style}>
         {this.state.workouts.map(workout => {
